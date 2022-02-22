@@ -153,10 +153,8 @@ for test_id in range(len(seeds)):
                     output = net.generate(batch_x)
                 pred = output
                 # _, pred = torch.max(output, dim=2)
-
-                pred = pred.cpu().detach().numpy()
-                batch_y = batch_y.cpu().detach().numpy()
-
+                # pred = pred.cpu().detach().numpy()
+                # batch_y = batch_y.cpu().detach().numpy()
 
                 for j in range(pred.shape[0]):
                     label_out.append(tokenizer.decode(pred[j], skip_special_tokens=True))
