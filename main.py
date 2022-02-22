@@ -146,12 +146,13 @@ for test_id in range(len(seeds)):
                 with torch.no_grad():
                     output = net.generate(batch_x)
                 pred = output[0]
-                
+
                 # _, pred = torch.max(output, dim=2)
 
                 pred = pred.cpu().detach().numpy()
                 batch_y = batch_y.cpu().detach().numpy()
 
+                print(pred.shape)
 
                 for j in range(pred.shape[0]):
                     label_out.append(pred[j][1])
