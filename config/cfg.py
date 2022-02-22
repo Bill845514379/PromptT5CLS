@@ -4,7 +4,7 @@ cfg = {
     'train_batch_size': 1,
     'test_batch_size': 32,
     'learning_rate': 1e-4,
-    'epoch': 20,
+    'epoch': 10,
     'K': 16,
     'Kt': 2000,
     'template': 'It was <extra_id_0>.',
