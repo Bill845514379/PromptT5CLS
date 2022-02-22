@@ -146,24 +146,21 @@ for test_id in range(len(seeds)):
                 with torch.no_grad():
                     output = net.generate(batch_x)
                 pred = output
-
-                print(tokenizer.decode(pred[0], skip_special_tokens=False))
-                print(tokenizer.decode(batch_y[0], skip_special_tokens=False))
                 # _, pred = torch.max(output, dim=2)
 
                 pred = pred.cpu().detach().numpy()
                 batch_y = batch_y.cpu().detach().numpy()
 
                 for j in range(pred.shape[0]):
-                    label_out.append(pred[j][1])
-                    label_y.append(batch_y[j][1])
+                    label_out.append(tokenizer.decode(pred[j], skip_special_tokens=True))
+                    label_y.append(tokenizer.decode(batch_y[0], skip_special_tokens=True))
 
             label_out = np.array(label_out)
             label_y = np.array(label_y)
 
             acc = (np.sum(label_y == label_out)) / len(label_y)
             print('------------------ epoch:{} ----------------'.format(i + 1))
-            print('test_acc:{}, time:{}'.format( round(acc, 4), time.time()-time0))
+            print('test_acc:{}, time:{}'.format(round(acc, 4), time.time()-time0))
             print('============================================'.format(i + 1))
             average_acc += acc
 
