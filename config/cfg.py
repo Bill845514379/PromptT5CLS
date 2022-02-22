@@ -9,12 +9,12 @@ cfg = {
     'Kt': 2000,
     'template': 'It was <extra_id_0>.',
     'answer': ['<extra_id_0> terrible <extra_id_1>', '<extra_id_0> great <extra_id_1>'],
-    'device': 'cpu',
+    'device': 'cuda',
     'optimizer': 'Adam',
 }
 
 path = {
     'neg_path': 'data/rt-polaritydata/neg_label.txt',
     'pos_path': 'data/rt-polaritydata/pos_label.txt',
-    't5_path': 'pretrained_model/t5_small'
+    't5_path': 't5_small'
 }
