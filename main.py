@@ -165,7 +165,7 @@ for test_id in range(len(seeds)):
             print('------------------ epoch:{} ----------------'.format(i + 1))
             print('test_acc:{}, time:{}'.format(round(acc, 4), time.time()-time0))
             print('============================================'.format(i + 1))
-            average_acc += acc
+            average_acc += acc * 100
             acc_array.append(acc)
 
             with open('output/pre_out' + str(test_id) + '.txt', 'w', encoding='utf-8') as file:
