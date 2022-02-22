@@ -114,7 +114,8 @@ for test_id in range(len(seeds)):
             batch_x, batch_y = Variable(batch_x).long(), Variable(batch_y).long()
             batch_x, batch_y = batch_x.to(device), batch_y.to(device)
 
-            output = net(input_ids=batch_x, labels=batch_y)
+            mask1 = (batch_x != 1).type(torch.long)
+            output = net(input_ids=batch_x, labels=batch_y, attention_mask=mask1)
             loss = output.loss
             loss.backward()
             torch.nn.utils.clip_grad_norm_(net.parameters(), 1.0)
@@ -150,7 +151,7 @@ for test_id in range(len(seeds)):
                 batch_x, batch_y = batch_x.to(device), batch_y.to(device)
 
                 with torch.no_grad():
-                    output = net.generate(batch_x)
+                    output = net.generate(input_ids=batch_x)
                 pred = output
                 # _, pred = torch.max(output, dim=2)
                 # pred = pred.cpu().detach().numpy()
