@@ -144,9 +144,10 @@ for test_id in range(len(seeds)):
                 batch_x, batch_y = batch_x.to(device), batch_y.to(device)
 
                 with torch.no_grad():
-                     output = net(batch_x, batch_y).logits
-
-                _, pred = torch.max(output, dim=2)
+                    output = net.generate(batch_x)
+                pred = output[0]
+                
+                # _, pred = torch.max(output, dim=2)
 
                 pred = pred.cpu().detach().numpy()
                 batch_y = batch_y.cpu().detach().numpy()
