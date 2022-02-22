@@ -5,7 +5,7 @@ cfg = {
     'test_batch_size': 32,
     'learning_rate': 1e-4,
     'epoch': 20,
-    'K': 16,
+    'K': 8,
     'Kt': 2000,
     'template': 'It was <extra_id_0>.',
     'answer': ['<extra_id_0> terrible <extra_id_1>', '<extra_id_0> great <extra_id_1>'],
