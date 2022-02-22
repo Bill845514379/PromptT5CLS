@@ -178,6 +178,7 @@ for test_id in range(len(seeds)):
                     file.write(str(label_out[j]))
                     file.write('\n')
 
+    del label_y, label_out, test_X, test_y
     del loader_train, loader_test, train_X, train_y, train_neg_X, train_pos_X, test_pos_X, test_neg_X
     gc.collect()
 
