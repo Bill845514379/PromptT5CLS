@@ -168,10 +168,10 @@ for test_id in range(len(seeds)):
             average_acc += acc * 100
             acc_array.append(acc * 100)
 
-            with open('output/pre_out' + str(test_id) + '.txt', 'w', encoding='utf-8') as file:
-                for j in range(len(label_out)):
-                    file.write(str(label_out[j]))
-                    file.write('\n')
+            # with open('output/pre_out' + str(test_id) + '.txt', 'w', encoding='utf-8') as file:
+            #     for j in range(len(label_out)):
+            #         file.write(str(label_out[j]))
+            #         file.write('\n')
 
 average_acc /= 5
 acc_array = np.array(acc_array)
