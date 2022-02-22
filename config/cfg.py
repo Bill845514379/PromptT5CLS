@@ -1,10 +1,10 @@
 cfg = {
     'gpu_id': 0,
     'max_len': 100,
-    'train_batch_size': 2,
+    'train_batch_size': 1,
     'test_batch_size': 32,
-    'learning_rate': 2e-5,
-    'epoch': 15,
+    'learning_rate': 1e-4,
+    'epoch': 10,
     'K': 16,
     'Kt': 2000,
     'template': 'It was <extra_id_0>.',
