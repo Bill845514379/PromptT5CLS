@@ -153,7 +153,7 @@ for test_id in range(len(seeds)):
 
                 for j in range(pred.shape[0]):
                     label_out.append(tokenizer.decode(pred[j], skip_special_tokens=True))
-                    label_y.append(tokenizer.decode(batch_y[0], skip_special_tokens=True))
+                    label_y.append(tokenizer.decode(batch_y[j], skip_special_tokens=True))
 
             label_out = np.array(label_out)
             label_y = np.array(label_y)
