@@ -93,7 +93,8 @@ for test_id in range(len(seeds)):
 
     epoch = cfg['epoch']
     print(cfg)
-
+    print(path)
+    
     for i in range(epoch):
         # if i > 5:
         #     current_lr *= 0.95
@@ -150,6 +151,7 @@ for test_id in range(len(seeds)):
 
                 pred = pred.cpu().detach().numpy()
                 batch_y = batch_y.cpu().detach().numpy()
+
 
                 for j in range(pred.shape[0]):
                     label_out.append(tokenizer.decode(pred[j], skip_special_tokens=True))
