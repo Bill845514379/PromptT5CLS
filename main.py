@@ -151,7 +151,8 @@ for test_id in range(len(seeds)):
                 batch_x, batch_y = batch_x.to(device), batch_y.to(device)
 
                 with torch.no_grad():
-                    output = net.generate(input_ids=batch_x)
+                    mask1 = (batch_x != 0).type(torch.long)
+                    output = net.generate(input_ids=batch_x, attention_mask=mask1)
                 pred = output
                 # _, pred = torch.max(output, dim=2)
                 # pred = pred.cpu().detach().numpy()
