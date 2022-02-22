@@ -48,7 +48,7 @@ for test_id in range(len(seeds)):
         batch_size=cfg['train_batch_size'],
         shuffle=True,
         num_workers=0,
-        drop_last=False
+        drop_last=True
     )
 
     loader_test = DataLoader(
