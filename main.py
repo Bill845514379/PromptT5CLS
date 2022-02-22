@@ -145,7 +145,7 @@ for test_id in range(len(seeds)):
 
                 with torch.no_grad():
                     output = net.generate(batch_x)
-                pred = output[0]
+                pred = output
 
                 # _, pred = torch.max(output, dim=2)
 
