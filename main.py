@@ -15,17 +15,21 @@ from common.metric import ScorePRF
 from common.set_random_seed import setup_seed
 import time
 
+os.environ["TOKENIZERS_PARALLELISM"] = "true"
+os.environ["CUDA_VISIBLE_DEVICES"] = str(cfg['gpu_id'])
+device = torch.device(cfg['device'])
+
+pos_X, pos_y = load_data(path['pos_path'])
+
 acc_array = []
 seeds = [10, 100, 1000, 2000, 4000]
 average_acc = 0
+
+
 for test_id in range(len(seeds)):
     print('~~~~~~~~~~~~~ 第', test_id+1, '次测试 ~~~~~~~~~~~~~~~~~~~')
     setup_seed(seeds[test_id])
-    os.environ["TOKENIZERS_PARALLELISM"] = "true"
-    os.environ["CUDA_VISIBLE_DEVICES"] = str(cfg['gpu_id'])
-    device = torch.device(cfg['device'])
 
-    pos_X, pos_y = load_data(path['pos_path'])
     train_pos_X, train_pos_y, test_pos_X, test_pos_y = data_split(pos_X, pos_y, cfg['K'], cfg['Kt'])
     train_pos_X, test_pos_X = X_data2id(train_pos_X, tokenizer), X_data2id(test_pos_X, tokenizer)
     train_pos_y, test_pos_y = get_answer_id(train_pos_y, tokenizer), get_answer_id(test_pos_y, tokenizer)
@@ -172,8 +176,6 @@ for test_id in range(len(seeds)):
                 for j in range(len(label_out)):
                     file.write(str(label_out[j]))
                     file.write('\n')
-            import time
-            time.sleep(3)
 
 average_acc /= 5
 acc_array = np.array(acc_array)
