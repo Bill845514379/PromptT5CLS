@@ -13,6 +13,7 @@ import torch.nn as nn
 from torch.autograd import Variable
 from common.metric import ScorePRF
 from common.set_random_seed import setup_seed
+import gc
 import time
 
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
@@ -176,6 +177,9 @@ for test_id in range(len(seeds)):
                 for j in range(len(label_out)):
                     file.write(str(label_out[j]))
                     file.write('\n')
+
+    del loader_train, loader_test, train_X, train_y, train_neg_X, train_pos_X, test_pos_X, test_neg_X
+    gc.collect()
 
 average_acc /= 5
 acc_array = np.array(acc_array)
