@@ -7,7 +7,7 @@ cfg = {
     'epoch': 20,
     'K': 16,
     'Kt': 2000,
-    'template': 'It was <extra_id_0>.',
+    'template': '<extra_id_0>',
     'answer': ['<extra_id_0> terrible <extra_id_1>', '<extra_id_0> great <extra_id_1>'],
     'device': 'cuda',
     'optimizer': 'Adam',
