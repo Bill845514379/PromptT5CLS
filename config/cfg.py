@@ -7,7 +7,7 @@ cfg = {
     'epoch': 20,
     'K': 16,
     'Kt': 2000,
-    'template': '<extra_id_0>',
+    'template': 'It was <extra_id_0>.',
     'answer': ['<extra_id_0> terrible <extra_id_1>', '<extra_id_0> great <extra_id_1>'],
     'device': 'cuda',
     'optimizer': 'Adam',
@@ -16,5 +16,5 @@ cfg = {
 path = {
     'neg_path': 'data/rt-polaritydata/neg_label.txt',
     'pos_path': 'data/rt-polaritydata/pos_label.txt',
-    't5_path': 't5-large'
+    't5_path': 't5-11b'
 }
