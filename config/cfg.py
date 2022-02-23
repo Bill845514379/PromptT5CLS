@@ -16,5 +16,5 @@ cfg = {
 path = {
     'neg_path': 'data/rt-polaritydata/neg_label.txt',
     'pos_path': 'data/rt-polaritydata/pos_label.txt',
-    't5_path': 't5-3b'
+    't5_path': 't5-large'
 }
